@@ -2,9 +2,10 @@
 
 namespace Obokaman\StockForecast\Domain\Model\Financial;
 
-use PHPUnit\Framework\TestCase;
+use InvalidArgumentException;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CurrencyTest extends TestCase
+class CurrencyTest extends WebTestCase
 {
     /** @var Currency */
     private $currency;
@@ -37,7 +38,7 @@ class CurrencyTest extends TestCase
 
     private function thenItThrowsAnException()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
     }
 
     private function whenITryToCreateAnInvalidCurrency()
@@ -52,7 +53,7 @@ class CurrencyTest extends TestCase
 
     private function thenIObtainAValidCurrency(string $currency_code)
     {
-        $this->assertEquals($currency_code, (string) $this->currency);
+        $this->assertEquals($currency_code, (string)$this->currency);
     }
 
     public function validCurrenciesProvider()

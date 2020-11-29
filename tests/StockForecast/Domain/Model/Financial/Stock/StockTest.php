@@ -2,9 +2,9 @@
 
 namespace Obokaman\StockForecast\Domain\Model\Financial\Stock;
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class StockTest extends TestCase
+class StockTest extends WebTestCase
 {
     /** @var Stock */
     private $stock;
@@ -25,6 +25,6 @@ class StockTest extends TestCase
 
     private function thenIObtainAValidStock(string $stock_code)
     {
-        $this->assertEquals($stock_code, (string) $this->stock);
+        $this->assertEquals($stock_code, (string)$this->stock);
     }
 }
